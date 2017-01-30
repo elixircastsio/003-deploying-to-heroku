@@ -1,0 +1,29 @@
+<h2>Show post</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @post.title %>
+  </li>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @post.body %>
+  </li>
+
+</ul>
+
+<%= render Teacher.CommentView, "new.html",
+                                conn: @conn,
+                                post: @post,
+                                comment_changeset: @comment_changeset %>
+
+<ul>
+<%= for comment <- @post.comments do %>
+  <li><%= comment.body %></li>
+<% end %>
+</ul>
+
+<%= link "Edit", to: post_path(@conn, :edit, @post) %>
+<%= link "Back", to: post_path(@conn, :index) %>

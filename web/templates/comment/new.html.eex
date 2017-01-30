@@ -1,0 +1,10 @@
+<h2>Add Your Comment</h2>
+
+<%= form_for @comment_changeset, post_comment_path(@conn, :create, @post), fn f -> %>
+   <div class="form-group">
+     <%= label f, :body, class: "control-label" %>
+     <%= text_input f, :body, class: "form-control" %>
+     <%= error_tag f, :body %>
+   </div>
+   <%= submit "Submit", class: "btn btn-primary" %>
+<% end %>
